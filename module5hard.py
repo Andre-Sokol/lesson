@@ -32,9 +32,9 @@ class UrTube:
 
     def register(self, nickname: str, password: str, age: int):
         for user in self.users:
-            if nickname in user.nickname:
+            if user.nickname == nickname:
                 print(f"Пользователь {nickname} уже существует")
-
+                return
 
         new_user = User(nickname, password, age)
         self.users.append(new_user)
@@ -94,4 +94,6 @@ if __name__ == '__main__':
 
     # Попытка воспроизведения несуществующего видео
     ur.watch_video('Лучший язык программирования 2024 года!')
+
+
 
