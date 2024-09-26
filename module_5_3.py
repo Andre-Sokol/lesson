@@ -23,18 +23,15 @@ class House:
 
     def __add__(self, value):
         if isinstance(self, House) and (value, int):
-            self.number_of_floors += value
-            return self
+            return House(self.name, self.number_of_floors + value)
 
     def __iadd__(self, value):
         if isinstance(self, House) and (value, int):
-            self.number_of_floors += value
-            return self
+            return House(self.name, self.number_of_floors + value)
 
     def __radd__(self, value):
         if isinstance(self, House) and (value, int):
-            self.number_of_floors += value
-            return self
+            return House(self.name, self.number_of_floors + value)
 
     def __gt__(self, other):
         if isinstance(self, House) and (other.number_of_floors, int):
