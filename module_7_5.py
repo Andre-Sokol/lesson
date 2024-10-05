@@ -6,7 +6,7 @@ for root, dirs, files in os.walk('.'):
         if os.path.isfile(file):
             filepath = os.path.join(root, file) # путь к файлу
             filetime = os.path.getmtime(file)   # время изменения, число с плавающей запятой, указывающее количество секунд с начала эпохи Unix
-            formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
+            formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime)) # дата и время изменения
             filesize = os.stat(file).st_size    # размер файла
             parent_dir = os.path.dirname(filepath)  # родительский каталог
 
