@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     # многопроцессный подход
     start_M = datetime.now()
-    with Pool(processes=4) as pool:
-        pool.map(read_info, filenames)
+    with Pool(processes=4) as p:
+        p.map(read_info, filenames)
     end_M = datetime.now()
     print(f'{end_M - start_M} (многопроцессный)') # время выполнения многопроцессный подход
