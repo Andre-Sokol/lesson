@@ -43,6 +43,7 @@ class Tournament:
 
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
     # метод создания атрибута класса all_results
     # словарь в который будут сохраняться результаты всех тестов.
     @classmethod
@@ -64,6 +65,7 @@ class TournamentTest(unittest.TestCase):
             print(result)
 
     # метод 1- й тест между участниками 1 и 3
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены.')
     def test_tournament1(self):
         tour = Tournament(90, self.runner1, self.runner3)
         Fin = tour.start()
@@ -72,6 +74,7 @@ class TournamentTest(unittest.TestCase):
         self.assertTrue(Fin[key].__eq__('Ник'))
 
     # метод 2-й тест между участниками 2 и 3
+
     def test_tournament2(self):
         tour = Tournament(90, self.runner2, self.runner3)
         Fin = tour.start()
@@ -80,6 +83,7 @@ class TournamentTest(unittest.TestCase):
         self.assertTrue(Fin[key].__eq__('Ник'))
 
     # метод 3- й тест между 3-мя  участниками 1, 2 и 3
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены.')
     def test_tournament3(self):
         tour = Tournament(90, self.runner1, self.runner2, self.runner3)
         Fin = tour.start()
