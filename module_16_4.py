@@ -34,7 +34,7 @@ async def update_user(user_id: int, username: str = Path(min_length=5, max_lengt
                                                          example='UrbanUser'),
                       age: int = Path(ge=18, le=120, description='Enter Age', example='24')):
     try:
-        user = next(user for user in users if user.id == user_id)
+        user = (user for user in users if user.id == user_id)
         user.username = username
         user.age = age
         return user
